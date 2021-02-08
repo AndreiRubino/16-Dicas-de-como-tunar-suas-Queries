@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+# 16 Dicas de como tunar suas Queries
 
-You can use the [editor on GitHub](https://github.com/AndreiRubino/16-Dicas-de-como-tunar-suas-Queries/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Este artigo tem como objetivo informar boas práticas de Tuning de Querys, a fim de melhorarmos o desempenho das Querys. As dicas abaixo não garantem por si só um melhor desempenho, cada query deve ser analisada a parte com base na sua necessidade.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+-	Não criei índices para tabelas pequenas.
+-	Criei índices somente para consultas frequentes.
+-	Utilize Index nas FKs.
+1.	Evite utilizar funções em colunas do SELECT.
+2.	Evite utilizar funções nas colunas da clausula JOIN.
+3.	Evite usar funções de conversão em colunas com índice. 
+•	Evite conversões implícitas, prefira conversões explicitas. 
+•	Evite comparar valores com NULL.
+•	Evite Operadores de negação.
+•	Evite Operadores LIKE com % no inicio da string. 
+•	Evite utilizar DISTINCT quando puder usar o EXISTS.
+•	Utilize o EXISTS se o where estiver na outer query, utilizee IN se o where estiver na inner query.
+•	Utilize Alias em consultas com colunas ambíguas.
+•	Utilize os Operadores de Precedência com melhor nível de execução.
+•	Evite asterisco na instrução SELECT.
+•	Sempre que possível utilize o ROWNUM.
 
-### Markdown
+Em breve estarei escrevendo artigos com mais dicas e também exemplos práticos.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
 
 - Bulleted
 - List
 
 1. Numbered
 2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AndreiRubino/16-Dicas-de-como-tunar-suas-Queries/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
